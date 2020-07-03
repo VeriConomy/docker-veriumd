@@ -17,7 +17,9 @@ ENV DOWNLOAD_URL http://statics.derasse.ovh/verium-${VERSION}/${FILENAME}
 #cleanup the temporary files
 
 RUN apt-get update \
-  && apt-get install -y wget libminizip-dev \
+  && apt-get install -y \
+  wget \
+  libminizip-dev \
   && wget $DOWNLOAD_URL \
   && tar xzvf /verium-${VERSION}-x86_64-linux-gnu.tar.gz \
   && mkdir /root/.verium \

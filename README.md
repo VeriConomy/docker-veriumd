@@ -63,35 +63,3 @@ on environment variables passed to the container:
 | VRM_TXINDEX | 0 |
 | VRM_TESTNET | 0 |
 | VRM_DBCACHE | 0 |
-
-
-## Daemonizing
-
-The smart thing to do if you're daemonizing is to use Docker's [builtin
-restart
-policies](https://docs.docker.com/config/containers/start-containers-automatically/#use-a-restart-policy),
-but if you're insistent on using systemd, you could do something like
-
-```bash
-$ cat /etc/systemd/system/veriumd.service
-
-# veriumd.service #######################################################################
-[Unit]
-Description=veriumd
-After=docker.service
-Requires=docker.service
-
-[Service]
-ExecStartPre=-/usr/bin/docker kill veriumd
-ExecStartPre=-/usr/bin/docker rm veriumd
-ExecStartPre=/usr/bin/docker pull jamesob/veriumd
-ExecStart=/usr/bin/docker run \
-    --name veriumd \
-    -p 8333:8333 \
-    -p 127.0.0.1:8332:8332 \
-    -v /data/veriumd:/root/.verium \
-    jamesob/veriumd
-ExecStop=/usr/bin/docker stop veriumd
-```
-
-to ensure that veriumd continues to run.

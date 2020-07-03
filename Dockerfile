@@ -20,7 +20,6 @@ ENV DOWNLOAD_URL https://plik.root.gg/file/K1PvjRTGiTqKMoVZ/awVENsqeRRgwYR9k/${F
 RUN apt-get update \
   && apt-get install -y \
   wget \
-#  libminizip-dev \
   && wget $DOWNLOAD_URL \
   && tar xzvf /verium-${VERSION}-x86_64-linux-gnu.tar.gz \
   && mkdir /root/.verium \

@@ -37,14 +37,15 @@ $ docker logs -f veriumd
 ### Connect to the image to run a bootstrap
 ```bash
 $ docker exec veriumd bash
-```bash
+```
 
 Once logged in, navigate to the /usr/local/bin folder and run the bootstrap command
 
 ```bash
 $ cd /usr/local/bin
 $ ./verium-cli bootstrap
-```bash
+
+```
 
 ## Configuration
 

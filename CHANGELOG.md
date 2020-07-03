@@ -1,3 +1,3 @@
-# 0.1 (Bitcoin 0.16.1)
+# 0.1 (Verium 1.3.0)
 
-- Moved from an Ubuntu image (~4GB) to Alpine (~90MB).
+Used Ubuntu as a base image, cause I like it big.

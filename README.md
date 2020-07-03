@@ -1,8 +1,8 @@
 
 # docker-veriumd
 
-[![Docker Stars](https://img.shields.io/docker/stars/jamesob/bitcoind.svg)](https://hub.docker.com/r/jamesob/bitcoind/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/jamesob/bitcoind.svg)](https://hub.docker.com/r/jamesob/bitcoind/)
+[![Docker Stars](https://img.shields.io/docker/stars/vericonomy/veriumd.svg)](https://hub.docker.com/r/vericonomy/veriumd/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/vericonomy/veriumd.svg)](https://hub.docker.com/r/vericonomy/veriumd/)
 
 A Docker configuration with sane defaults for running a fully-validating
 Verium node, based on [Ubuntu](https://ubuntu.org/).
@@ -14,11 +14,6 @@ Requires that [Docker be installed](https://docs.docker.com/install/) on the hos
 ### Clone and build the docker image
 
 ```bash
-$ mkdir veriumd
-$ git clone https://github.com/TnTBass/docker-veriumd.git veriumd
-$ cd veriumd
-$ docker build . -t veriumd
-
 # Create some directory where your Verium data will be stored.
 $ mkdir /home/youruser/verium_data
 
@@ -28,7 +23,7 @@ $ docker run --name veriumd -d \
    --env 'VRM_TXINDEX=1' \
    --volume /home/youruser/verium_data:/root/.verium \
    --publish 9333:9333 \
-   veriumd
+   vericonomy/veriumd
 
 $ docker logs -f veriumd
 [ ... ]

@@ -32,14 +32,17 @@ rpcclienttimeout=${VRM_RPCCLIENTTIMEOUT:-30}
 rpcallowip=${VRM_RPCALLOWIP:-::/0}
 
 # Listen for RPC connections on this TCP port:
-rpcport=${VRM_RPCPORT:-8332}
+rpcport=${VRM_RPCPORT:-33987}
+
+# Listen for P2P connections on this TCP port:
+rpcport=${VRM_P2PORT:-33988}
 
 # Print to console (stdout) so that "docker logs veriumd" prints useful
 # information.
 printtoconsole=${VRM_PRINTTOCONSOLE:-1}
 
-# We probably don't want a wallet.
-disablewallet=${VRM_DISABLEWALLET:-1}
+# We probably want a wallet.
+disablewallet=${VRM_DISABLEWALLET:-0}
 
 # Enable an on-disk txn index. Allows use of getrawtransaction for txns not in
 # mempool.

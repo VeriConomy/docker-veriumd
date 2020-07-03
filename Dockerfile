@@ -1,33 +1,31 @@
-FROM alpine
-LABEL MAINTAINER="James O'Beirne <james@chaincode.com>"
+FROM ubuntu:20.04
 
-ARG VERSION=0.17.1
-ARG GLIBC_VERSION=2.29-r0
+#RUN wget http://statics.derasse.ovh/verium-1.3.0/verium-1.3.0-x86_64-linux-gnu.tar.gz
 
-ENV FILENAME bitcoin-${VERSION}-x86_64-linux-gnu.tar.gz
-ENV DOWNLOAD_URL https://bitcoin.org/bin/bitcoin-core-${VERSION}/${FILENAME}
+ARG VERSION=1.3.0
+
+ENV FILENAME verium-${VERSION}-x86_64-linux-gnu.tar.gz
+ENV DOWNLOAD_URL http://statics.derasse.ovh/verium-${VERSION}/${FILENAME}
 
 # Some of this was unabashadly yanked from
 # https://github.com/szyhf/DIDockerfiles/blob/master/bitcoin/alpine/Dockerfile
+# and https://github.com/jamesob/docker-bitcoind/blob/master/Dockerfile
 
-RUN apk update \
-  && apk --no-cache add wget tar bash ca-certificates \
-  && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
-  && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk \
-  && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-bin-${GLIBC_VERSION}.apk \
-  && apk --no-cache add glibc-${GLIBC_VERSION}.apk \
-  && apk --no-cache add glibc-bin-${GLIBC_VERSION}.apk \
-  && rm -rf /glibc-${GLIBC_VERSION}.apk \
-  && rm -rf /glibc-bin-${GLIBC_VERSION}.apk \
+#Update Ubuntu
+#Download verium binary
+#move appropriate files to /usr/local/bin
+#cleanup the temporary files
+
+RUN apt-get update \
+  && apt-get install -y wget libminizip-dev \
   && wget $DOWNLOAD_URL \
-  && tar xzvf /bitcoin-${VERSION}-x86_64-linux-gnu.tar.gz \
-  && mkdir /root/.bitcoin \
-  && mv /bitcoin-${VERSION}/bin/* /usr/local/bin/ \
-  && rm -rf /bitcoin-${VERSION}/ \
-  && rm -rf /bitcoin-${VERSION}-x86_64-linux-gnu.tar.gz \
-  && apk del tar wget ca-certificates
+  && tar xzvf /verium-${VERSION}-x86_64-linux-gnu.tar.gz \
+  && mkdir /root/.verium \
+  && mv /verium-${VERSION}/bin/* /usr/local/bin/ \
+  && rm -rf /verium-${VERSION}/ \
+  && rm -rf /verium-${VERSION}-x86_64-linux-gnu.tar.gz
 
-EXPOSE 8332 8333 18332 18333 28332 28333
+EXPOSE 9333 36988
 
 ADD VERSION .
 ADD ./bin/docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh

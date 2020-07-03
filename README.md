@@ -11,14 +11,21 @@ Verium node, based on [Ubuntu](https://ubuntu.org/).
 
 Requires that [Docker be installed](https://docs.docker.com/install/) on the host machine.
 
+### Clone and build the docker image
+
 ```bash
+$ mkdir veriumd
+$ git clone https://github.com/TnTBass/docker-veriumd.git veriumd
+$ cd veriumd
+$ docker build . -t veriumd
+
 # Create some directory where your Verium data will be stored.
 $ mkdir /home/youruser/verium_data
 
 $ docker run --name veriumd -d \
-   --env 'BTC_RPCUSER=foo' \
-   --env 'BTC_RPCPASSWORD=password' \
-   --env 'BTC_TXINDEX=1' \
+   --env 'VRM_RPCUSER=foo' \
+   --env 'VRM_RPCPASSWORD=password' \
+   --env 'VRM_TXINDEX=1' \
    --volume /home/youruser/verium_data:/root/.verium \
    --publish 9333:9333 \
    veriumd
@@ -36,15 +43,15 @@ on environment variables passed to the container:
 
 | name | default |
 | ---- | ------- |
-| BTC_RPCUSER | vrm |
-| BTC_RPCPASSWORD | changemeplz |
-| BTC_RPCPORT | 9333 |
-| BTC_RPCALLOWIP | ::/0 |
-| BTC_RPCCLIENTTIMEOUT | 30 |
-| BTC_DISABLEWALLET | 1 |
-| BTC_TXINDEX | 0 |
-| BTC_TESTNET | 0 |
-| BTC_DBCACHE | 0 |
+| VRM_RPCUSER | vrm |
+| VRM_RPCPASSWORD | changemeplz |
+| VRM_RPCPORT | 9333 |
+| VRM_RPCALLOWIP | ::/0 |
+| VRM_RPCCLIENTTIMEOUT | 30 |
+| VRM_DISABLEWALLET | 1 |
+| VRM_TXINDEX | 0 |
+| VRM_TESTNET | 0 |
+| VRM_DBCACHE | 0 |
 
 
 ## Daemonizing

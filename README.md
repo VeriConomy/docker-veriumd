@@ -52,7 +52,8 @@ on environment variables passed to the container:
 | ---- | ------- |
 | VRM_RPCUSER | vrm |
 | VRM_RPCPASSWORD | changemeplz |
-| VRM_RPCPORT | 9333 |
+| VRM_RPCPORT | 33987 |
+| VRM_P2PORT | 33988 |
 | VRM_RPCALLOWIP | ::/0 |
 | VRM_RPCCLIENTTIMEOUT | 30 |
 | VRM_DISABLEWALLET | 1 |

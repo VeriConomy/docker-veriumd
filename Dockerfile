@@ -27,7 +27,7 @@ RUN apt-get update \
   && rm -rf /verium-${VERSION}/ \
   && rm -rf /verium-${VERSION}-x86_64-linux-gnu.tar.gz
 
-EXPOSE 9333 36988
+EXPOSE 33987 36988
 
 ADD VERSION .
 ADD ./bin/docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh

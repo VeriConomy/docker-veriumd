@@ -1,12 +1,11 @@
 FROM ubuntu:20.04
 
 #RUN wget http://statics.derasse.ovh/verium-1.3.0/verium-1.3.0-x86_64-linux-gnu.tar.gz
-# https://plik.root.gg/file/K1PvjRTGiTqKMoVZ/awVENsqeRRgwYR9k/verium-1.3.0-x86_64-linux-gnu.tar.gz
 
 ARG VERSION=1.3.0
 
 ENV FILENAME verium-${VERSION}-x86_64-linux-gnu.tar.gz
-ENV DOWNLOAD_URL https://plik.root.gg/file/K1PvjRTGiTqKMoVZ/awVENsqeRRgwYR9k/${FILENAME}
+ENV DOWNLOAD_URL http://statics.derasse.ovh/verium-{VERSION}/${FILENAME}
 
 # Some of this was unabashadly yanked from
 # https://github.com/szyhf/DIDockerfiles/blob/master/bitcoin/alpine/Dockerfile

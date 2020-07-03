@@ -21,7 +21,7 @@ $ docker run --name veriumd -d \
    --env 'BTC_TXINDEX=1' \
    --volume /home/youruser/verium_data:/root/.verium \
    --publish 9333:9333 \
-   jamesob/veriumd
+   veriumd
 
 $ docker logs -f veriumd
 [ ... ]

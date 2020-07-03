@@ -6,7 +6,7 @@ FROM ubuntu:20.04
 ARG VERSION=1.3.0
 
 ENV FILENAME verium-${VERSION}-x86_64-linux-gnu.tar.gz
-ENV DOWNLOAD_URL https://plik.root.gg/file/K1PvjRTGiTqKMoVZ/awVENsqeRRgwYR9k/verium-${VERSION}/${FILENAME}
+ENV DOWNLOAD_URL https://plik.root.gg/file/K1PvjRTGiTqKMoVZ/awVENsqeRRgwYR9k/${FILENAME}
 
 # Some of this was unabashadly yanked from
 # https://github.com/szyhf/DIDockerfiles/blob/master/bitcoin/alpine/Dockerfile

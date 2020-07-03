@@ -22,7 +22,7 @@ if [ ! -e "${VERIUM_CONF}" ]; then
 server=1
 
 # You must set rpcuser and rpcpassword to secure the JSON-RPC api
-rpcuser=${VRM_RPCUSER:-btc}
+rpcuser=${VRM_RPCUSER:-vrm}
 rpcpassword=${VRM_RPCPASSWORD:-changemeplz}
 
 # How many seconds verium will wait for a complete RPC HTTP request.
@@ -50,9 +50,6 @@ txindex=${VRM_TXINDEX:-0}
 
 # Run on the test network instead of the real verium network.
 testnet=${VRM_TESTNET:-0}
-
-# Set database cache size in MiB
-dbcache=${VRM_DBCACHE:-512}
 
 EOF
 fi

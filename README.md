@@ -78,4 +78,3 @@ on environment variables passed to the container:
 | VRM_DISABLEWALLET | 0 |
 | VRM_TXINDEX | 0 |
 | VRM_TESTNET | 0 |
-| VRM_DBCACHE | 0 |

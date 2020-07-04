@@ -41,6 +41,24 @@ $ ./verium-cli bootstrap
 
 ```
 
+# Docker Compose Example
+
+```bash
+version: '3.7'
+
+services:
+
+  verium:
+    image: vericonomy/veriumd:latest
+    restart: always
+    environment:
+      - VRM_RPCUSER=foo
+      - VRM_RPCPASSWORD=changemeplz-or-you-will-have-all-your-coins-stolen
+      - VRM_TXINDEX=1
+    volumes:
+      - /my/persistent/volume/verium:/root/.verium
+```
+
 # Where to Store Data / Managing the wallet.dat
 
 Important note: When it comes to keeping your VRM safe, running this Docker container is no different than compiling the code or running the binary.  <b>It is critical to backup and maintain your wallet.dat and private keys!</b>

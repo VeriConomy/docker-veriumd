@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM alpine
 
 #Will need to change to appropriate URL when its on vericonomy
 #RUN wget http://statics.derasse.ovh/verium-1.3.0/verium-1.3.0-x86_64-linux-gnu.tar.gz

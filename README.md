@@ -70,7 +70,7 @@ on environment variables passed to the container:
 | name | default |
 | ---- | ------- |
 | VRM_RPCUSER | vrm |
-| VRM_RPCPASSWORD | changemeplz |
+| VRM_RPCPASSWORD | changemeplz-or-you-will-have-all-your-coins-stolen |
 | VRM_RPCPORT | 33987 |
 | VRM_P2PORT | 33988 |
 | VRM_RPCALLOWIP | ::/0 |

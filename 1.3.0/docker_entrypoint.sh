@@ -23,7 +23,7 @@ server=1
 
 # You must set rpcuser and rpcpassword to secure the JSON-RPC api
 rpcuser=${VRM_RPCUSER:-vrm}
-rpcpassword=${VRM_RPCPASSWORD:-changemeplz}
+rpcpassword=${VRM_RPCPASSWORD:-changemeplz-or-you-will-have-all-your-coins-stolen}
 
 # How many seconds verium will wait for a complete RPC HTTP request.
 # after the HTTP connection is established.

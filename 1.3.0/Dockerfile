@@ -28,7 +28,6 @@ RUN apt-get update \
 
 EXPOSE 33987 36988
 
-ADD VERSION .
 ADD ./1.3.0/docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
 

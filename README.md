@@ -6,11 +6,11 @@
 
 A Docker configuration with sane defaults for running a fully-validating Verium node.
 
-## Quick start
+# Quick start
 
 Requires that [Docker be installed](https://docs.docker.com/install/) on the host machine.
 
-### Clone and build the docker image
+## Clone and build the docker image
 
 ```bash
 # Create some directory where your Verium data will be stored.
@@ -28,7 +28,7 @@ $ docker logs -f veriumd
 [ ... ]
 ```
 
-### Connect to the image to run a bootstrap
+## Connect to the image to run a bootstrap
 ```bash
 $ docker exec veriumd bash
 ```

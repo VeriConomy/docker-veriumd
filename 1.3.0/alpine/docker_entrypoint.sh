@@ -13,8 +13,8 @@ if [ ! -e "${VERIUM_CONF}" ]; then
 
 # For documentation on the config file, see
 #
-# the bitcoin source:
-#   https://github.com/bitcoin/bitcoin/blob/master/share/examples/bitcoin.conf
+# the verium source:
+#   https://github.com/VeriumReserve/verium/blob/master/share/examples/verium.conf
 # the wiki:
 #   https://en.bitcoin.it/wiki/Running_Bitcoin
 

@@ -4,8 +4,7 @@
 [![Docker Stars](https://img.shields.io/docker/stars/vericonomy/veriumd.svg)](https://hub.docker.com/r/vericonomy/veriumd/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/vericonomy/veriumd.svg)](https://hub.docker.com/r/vericonomy/veriumd/)
 
-A Docker configuration with sane defaults for running a fully-validating
-Verium node, based on [Ubuntu](https://ubuntu.org/).
+A Docker configuration with sane defaults for running a fully-validating Verium node.
 
 ## Quick start
 

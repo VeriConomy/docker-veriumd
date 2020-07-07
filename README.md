@@ -71,7 +71,7 @@ The Docker documentation is a good starting point for understanding the differen
 
 1. Create a data directory on a suitable volume on your host system, e.g. /my/own/datadir.
 
-2. Start your mysql container like this:
+2. Start your verium container like this:
 
 ```bash
       $ docker run --name super-cool-veriumd -v /my/own/datadir:/root/.verium -d vericonomy/veriumd:tag

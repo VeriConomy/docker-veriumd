@@ -1,0 +1,36 @@
+FROM ubuntu:20.04
+
+#RUN wget http://statics.derasse.ovh/verium-1.3.0/verium-1.3.0-x86_64-linux-gnu.tar.gz
+#RUN wget https://files.vericonomy.com/vrm/verium-1.3.1-x86_64-linux-gnu.tar.gz
+
+ARG VERSION=1.3.1
+
+ENV FILENAME verium-${VERSION}-x86_64-linux-gnu.tar.gz
+#ENV DOWNLOAD_URL http://statics.derasse.ovh/verium-${VERSION}/${FILENAME}
+ENV DOWNLOAD_URL https://files.vericonomy.com/vrm/${FILENAME}
+
+# Some of this was unabashadly yanked from
+# https://github.com/szyhf/DIDockerfiles/blob/master/bitcoin/alpine/Dockerfile
+# and https://github.com/jamesob/docker-bitcoind/blob/master/Dockerfile
+
+#Update Ubuntu
+#Download verium binary
+#move appropriate files to /usr/local/bin
+#cleanup the temporary files
+
+RUN apt-get update \
+  && apt-get install -y \
+  wget \
+  && wget $DOWNLOAD_URL \
+  && tar xzvf /verium-${VERSION}-x86_64-linux-gnu.tar.gz \
+  && mkdir /root/.verium \
+  && mv /verium-${VERSION}/bin/* /usr/local/bin/ \
+  && rm -rf /verium-${VERSION}/ \
+  && rm -rf /verium-${VERSION}-x86_64-linux-gnu.tar.gz
+
+EXPOSE 33987 36988
+
+COPY docker_entrypoint.sh /usr/local/bin/
+RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
+
+ENTRYPOINT ["/usr/local/bin/docker_entrypoint.sh"]

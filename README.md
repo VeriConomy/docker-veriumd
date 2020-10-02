@@ -91,6 +91,7 @@ on environment variables passed to the container:
 | VRM_RPCPASSWORD | changemeplz-or-you-will-have-all-your-coins-stolen |
 | VRM_RPCPORT | 33987 |
 | VRM_P2PORT | 33988 |
+| VRM_RPCBIND | 127.0.0.1 |
 | VRM_RPCALLOWIP | ::/0 |
 | VRM_RPCCLIENTTIMEOUT | 30 |
 | VRM_DISABLEWALLET | 0 |

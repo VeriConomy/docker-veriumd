@@ -25,10 +25,10 @@ server=1
 rpcuser=${VRM_RPCUSER:-vrm}
 rpcpassword=${VRM_RPCPASSWORD:-changemeplz-or-you-will-have-all-your-coins-stolen}
 
-# How many seconds verium will wait for a complete RPC HTTP request.
-# after the HTTP connection is established.
-rpcclienttimeout=${VRM_RPCCLIENTTIMEOUT:-30}
+# Need rpcbind or this little bastard won't work
+rpcbind=${VRM_RPCBIND:-127.0.0.1}
 
+#Lets allow all RPC IPs, OK?
 rpcallowip=${VRM_RPCALLOWIP:-::/0}
 
 # Listen for RPC connections on this TCP port:

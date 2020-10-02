@@ -1,12 +1,12 @@
 FROM alpine
 
-ARG VERSION=1.3.1
+ARG VERSION=1.3.2
 ARG CHECKSUM=SHA512SUMS
 ARG GLIBC_VERSION=2.29-r0
 
 ENV FILENAME verium-${VERSION}-x86_64-linux-gnu.tar.gz
-ENV DOWNLOAD_URL https://files.vericonomy.com/vrm/${FILENAME}
-ENV DOWNLOAD_CHECKSUM https://files.vericonomy.com/vrm/${CHECKSUM}
+ENV DOWNLOAD_URL https://files.vericonomy.com/vrm/releases/${VERSION}/${FILENAME}
+ENV DOWNLOAD_CHECKSUM https://files.vericonomy.com/vrm/releases/${VERSION}/${CHECKSUM}
 
 # Some of this was unabashadly yanked from
 # https://github.com/szyhf/DIDockerfiles/blob/master/bitcoin/alpine/Dockerfile

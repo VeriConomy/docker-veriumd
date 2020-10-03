@@ -93,7 +93,6 @@ on environment variables passed to the container:
 | VRM_P2PORT | 33988 |
 | VRM_RPCBIND | 127.0.0.1 |
 | VRM_RPCALLOWIP | ::/0 |
-| VRM_RPCCLIENTTIMEOUT | 30 |
 | VRM_DISABLEWALLET | 0 |
 | VRM_TXINDEX | 0 |
 | VRM_TESTNET | 0 |

@@ -1,11 +1,11 @@
 FROM ubuntu:20.04
 
-#RUN wget http://statics.derasse.ovh/verium-1.3.0/verium-1.3.0-x86_64-linux-gnu.tar.gz
-
-ARG VERSION=1.3.0
+ARG VERSION=1.3.2
+ARG CHECKSUM=SHA512SUMS
 
 ENV FILENAME verium-${VERSION}-x86_64-linux-gnu.tar.gz
-ENV DOWNLOAD_URL http://statics.derasse.ovh/verium-${VERSION}/${FILENAME}
+ENV DOWNLOAD_URL https://files.vericonomy.com/vrm/releases/${VERSION}/${FILENAME}
+ENV DOWNLOAD_CHECKSUM https://files.vericonomy.com/vrm/releases/${VERSION}/${CHECKSUM}
 
 # Some of this was unabashadly yanked from
 # https://github.com/szyhf/DIDockerfiles/blob/master/bitcoin/alpine/Dockerfile
@@ -20,7 +20,9 @@ RUN apt-get update \
   && apt-get install -y \
   wget \
   && wget $DOWNLOAD_URL \
+  && wget $DOWNLOAD_CHECKSUM \
   && tar xzvf /verium-${VERSION}-x86_64-linux-gnu.tar.gz \
+  && sha512sum --check --ignore-missing SHA512SUMS \
   && mkdir /root/.verium \
   && mv /verium-${VERSION}/bin/* /usr/local/bin/ \
   && rm -rf /verium-${VERSION}/ \

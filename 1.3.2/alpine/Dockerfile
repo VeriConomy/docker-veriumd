@@ -1,13 +1,12 @@
 FROM alpine
 
-#Will need to change to appropriate URL when its on vericonomy
-#RUN wget http://statics.derasse.ovh/verium-1.3.0/verium-1.3.0-x86_64-linux-gnu.tar.gz
-
-ARG VERSION=1.3.0
+ARG VERSION=1.3.2
+ARG CHECKSUM=SHA512SUMS
 ARG GLIBC_VERSION=2.29-r0
 
 ENV FILENAME verium-${VERSION}-x86_64-linux-gnu.tar.gz
-ENV DOWNLOAD_URL http://statics.derasse.ovh/verium-${VERSION}/${FILENAME}
+ENV DOWNLOAD_URL https://files.vericonomy.com/vrm/releases/${VERSION}/${FILENAME}
+ENV DOWNLOAD_CHECKSUM https://files.vericonomy.com/vrm/releases/${VERSION}/${CHECKSUM}
 
 # Some of this was unabashadly yanked from
 # https://github.com/szyhf/DIDockerfiles/blob/master/bitcoin/alpine/Dockerfile
@@ -29,6 +28,8 @@ RUN apk update \
   && rm -rf /glibc-${GLIBC_VERSION}.apk \
   && rm -rf /glibc-bin-${GLIBC_VERSION}.apk \
   && wget $DOWNLOAD_URL \
+  && wget $DOWNLOAD_CHECKSUM \
+  && cat ${CHECKSUM} | grep ${FILENAME} | sha512sum -c \
   && tar xzvf /verium-${VERSION}-x86_64-linux-gnu.tar.gz \
   && mkdir /root/.verium \
   && mv /verium-${VERSION}/bin/* /usr/local/bin/ \

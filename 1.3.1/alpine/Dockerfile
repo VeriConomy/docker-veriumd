@@ -37,7 +37,7 @@ RUN apk update \
   && rm -rf /verium-${VERSION}-x86_64-linux-gnu.tar.gz \
   && apk del tar wget ca-certificates
 
-EXPOSE 33987 36988
+EXPOSE 33987 33988
 
 COPY docker_entrypoint.sh /usr/local/bin/
 RUN chmod a+x /usr/local/bin/docker_entrypoint.sh

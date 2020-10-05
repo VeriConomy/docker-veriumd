@@ -35,7 +35,7 @@ rpcallowip=${VRM_RPCALLOWIP:-::/0}
 rpcport=${VRM_RPCPORT:-33987}
 
 # Listen for P2P connections on this TCP port:
-rpcport=${VRM_P2PORT:-33988}
+port=${VRM_P2PORT:-33988}
 
 # Print to console (stdout) so that "docker logs veriumd" prints useful
 # information.

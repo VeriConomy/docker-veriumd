@@ -1,7 +1,6 @@
 pool:
   name: WorkerPool
-  #demands: Agent.OSArchitecture -equals ARM
-  demands: Test -equals Test
+  demands: Agent.OSArchitecture -equals ARM
 
 steps:
 - task: Docker@2

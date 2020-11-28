@@ -7,7 +7,7 @@ steps:
   displayName: 'Build an image'
   inputs:
     containerRegistry: 'dockerhub_vericonomy'
-    repository: 'johanthedeveloper/veriumd'
+    repository: 'vericonomy/veriumd'
     command: build
     Dockerfile: '**/1.3.2/Dockerfile'
     tags: X64
@@ -18,7 +18,7 @@ steps:
   displayName: 'Push an image'
   inputs:
     containerRegistry: 'dockerhub_vericonomy'
-    repository: 'johanthedeveloper/veriumd'
+    repository: 'vericonomy/veriumd'
     command: push
     tags: X64
     addPipelineData: false
@@ -32,8 +32,8 @@ steps:
 
 - script: |
    SET DOCKER_CLI_EXPERIMENTAL=enabled
-   docker manifest create johanthedeveloper/veriumd:latest --amend johanthedeveloper/veriumd:X64 --amend johanthedeveloper/veriumd:ARM
-   docker manifest push johanthedeveloper/veriumd:latest -p
+   docker manifest create vericonomy/veriumd:latest --amend vericonomy/veriumd:X64 --amend vericonomy/veriumd:ARM
+   docker manifest push vericonomy/veriumd:latest -p
    SET DOCKER_CLI_EXPERIMENTAL=disabled
   displayName: 'Command Line Script'
 

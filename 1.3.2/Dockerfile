@@ -2,8 +2,10 @@ FROM ubuntu:20.04
 
 ARG VERSION=1.3.2
 ARG CHECKSUM=SHA512SUMS
+ARG ARCH=x86_64
+ARG TYPE=gnu
 
-ENV FILENAME verium-${VERSION}-x86_64-linux-gnu.tar.gz
+ENV FILENAME verium-${VERSION}-${ARCH}-linux-${TYPE}.tar.gz
 ENV DOWNLOAD_URL https://files.vericonomy.com/vrm/releases/${VERSION}/${FILENAME}
 ENV DOWNLOAD_CHECKSUM https://files.vericonomy.com/vrm/releases/${VERSION}/${CHECKSUM}
 
@@ -18,15 +20,15 @@ ENV DOWNLOAD_CHECKSUM https://files.vericonomy.com/vrm/releases/${VERSION}/${CHE
 
 RUN apt-get update \
   && apt-get install -y \
-  wget \
+  wget libatomic1 \
   && wget $DOWNLOAD_URL \
   && wget $DOWNLOAD_CHECKSUM \
-  && tar xzvf /verium-${VERSION}-x86_64-linux-gnu.tar.gz \
+  && tar xzvf /verium-${VERSION}-${ARCH}-linux-${TYPE}.tar.gz \
   && sha512sum --check --ignore-missing SHA512SUMS \
   && mkdir /root/.verium \
   && mv /verium-${VERSION}/bin/* /usr/local/bin/ \
   && rm -rf /verium-${VERSION}/ \
-  && rm -rf /verium-${VERSION}-x86_64-linux-gnu.tar.gz
+  && rm -rf /verium-${VERSION}-${ARCH}-linux-${TYPE}.tar.gz
 
 EXPOSE 33987 33988
 
